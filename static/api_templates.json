@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Trip Request",
+    "template": "trip_request.xml",
+    "variables": [
+      {
+        "variable": "stop_event_type",
+        "name": "Stop event type",
+        "description": "Dies ist der Stop Event Type",
+        "type": "datetime",
+        "default": "departure",
+        "required": true
+      },
+      {
+        "type": "enumeration",
+        "enumeration": ["departure", "arrival"]
+      },
+      {
+        "name": "stop_point_ref",
+        "type": "integer",
+        "default": 8502113
+      }
+    ]
+  },
+  {
+    "name": "StopEvent"
+  }
+]
