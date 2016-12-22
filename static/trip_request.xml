@@ -1,24 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Trias version="1.1" xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ServiceRequest>
-        <siri:RequestTimestamp>2016-06-27T13:34:00</siri:RequestTimestamp>
-        <siri:RequestorRef>EPSa</siri:RequestorRef>
+        <siri:RequestTimestamp>2016-07-05T18:00:00</siri:RequestTimestamp>
+        <siri:RequestorRef>JS</siri:RequestorRef>
         <RequestPayload>
-            <StopEventRequest>
-                {% if stop_point_ref %}
-                <Location>
-                    <LocationRef>
-                        <StopPointRef>{{ stop_point_ref }}</StopPointRef>
-                    </LocationRef>
-                </Location>
-                {% endif %}
+            <TripInfoRequest>
+                <JourneyRef>sbb:01012::H:j16:30441</JourneyRef>
+                <OperatingDayRef>2016-04-02T</OperatingDayRef>
                 <Params>
-                    <NumberOfResults>30</NumberOfResults>
-                    <StopEventType>{{ stop_event_type }}</StopEventType>
-                    <IncludePreviousCalls>true</IncludePreviousCalls>
-                    <IncludeOnwardCalls>true</IncludeOnwardCalls>
+                    <!-- <UseTimetabledDataOnly>false</UseTimetabledDataOnly> -->
+                    <IncludeCalls>true</IncludeCalls>
+                    <IncludePosition>false</IncludePosition>
+                    <IncludeService>true</IncludeService>
                 </Params>
-            </StopEventRequest>
+            </TripInfoRequest>
         </RequestPayload>
     </ServiceRequest>
 </Trias>
