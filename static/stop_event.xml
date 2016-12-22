@@ -5,16 +5,14 @@
         <siri:RequestorRef>EPSa</siri:RequestorRef>
         <RequestPayload>
             <StopEventRequest>
-                {% if stop_point_ref %}
                 <Location>
                     <LocationRef>
-                        <StopPointRef>{{ stop_point_ref }}</StopPointRef>
+                        <StopPointRef>8502113</StopPointRef>
                     </LocationRef>
                 </Location>
-                {% endif %}
                 <Params>
                     <NumberOfResults>30</NumberOfResults>
-                    <StopEventType>{{ stop_event_type }}</StopEventType>
+                    <StopEventType>departure</StopEventType>
                     <IncludePreviousCalls>true</IncludePreviousCalls>
                     <IncludeOnwardCalls>true</IncludeOnwardCalls>
                 </Params>

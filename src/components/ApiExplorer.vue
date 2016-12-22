@@ -9,15 +9,17 @@
       </div>
     </div>
 
+    <hr>
+
     <div class="row">
       <div class="col-xs-4">
-        Editor:
         Stop Point Ref: <input type="text" v-model="data.stop_point_ref">
+        <button @click="send">Send</button>
       </div>
       <div class="col-xs-8">
         <div v-if="currentTemplate">{{ currentTemplate.name }}</div>
         <pre v-html="highlightedTemplate"></pre>
-        <div>xml output</div>
+        <pre v-html="highlightedResponse"></pre>
       </div>
     </div>
   </div>
@@ -34,6 +36,8 @@ import 'prismjs/components/prism-markup'
 
 import nunjucks from 'nunjucks'
 
+import beautify from 'js-beautify'
+
 export default {
   data () {
     return {
@@ -41,8 +45,9 @@ export default {
       templateIndex: null,
       currentTemplate: null,
       xmlTemplate: '',
+      response: '',
       data: {
-        stop_point_ref: 'default'
+        stop_point_ref: '8502113'
       }
     }
   },
@@ -73,7 +78,26 @@ export default {
       return nunjucks.renderString(this.xmlTemplate, this.data)
     },
     highlightedTemplate () {
-      return Prism.highlight(this.renderedTemplate, Prism.languages.markup)
+      return Prism.highlight(beautify.html(this.renderedTemplate), Prism.languages.markup)
+    },
+    highlightedResponse () {
+      return Prism.highlight(beautify.html(this.response), Prism.languages.markup)
+    }
+  },
+
+  methods: {
+    send () {
+      fetch('https://odpch-api.begasoft.ch/trias-int', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/xml',
+          'Authorization': '57c5dadd5e6307000100005ec00211917288475a426a2a7a909a343a'
+        },
+        body: this.renderedTemplate
+      })
+      .then((response) => response.text())
+      .then((xml) => (this.response = xml))
+      .catch((ex) => (console.log(`api request failed`, ex)))
     }
   }
 }
