@@ -12,10 +12,11 @@
     <div class="row">
       <div class="col-xs-4">
         Editor:
+        Stop Point Ref: <input type="text" v-model="data.stop_point_ref">
       </div>
       <div class="col-xs-8">
         <div v-if="currentTemplate">{{ currentTemplate.name }}</div>
-        <pre v-html="renderedXmlTemplate"></pre>
+        <pre v-html="highlightedTemplate"></pre>
         <div>xml output</div>
       </div>
     </div>
@@ -31,13 +32,18 @@ import Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
 import 'prismjs/components/prism-markup'
 
+import nunjucks from 'nunjucks'
+
 export default {
   data () {
     return {
       templates: [],
       templateIndex: null,
       currentTemplate: null,
-      xmlTemplate: ''
+      xmlTemplate: '',
+      data: {
+        stop_point_ref: 'default'
+      }
     }
   },
 
@@ -49,6 +55,7 @@ export default {
         this.templateIndex = 0
       })
       .catch((ex) => (console.log('parsing api_templates failed', ex)))
+    nunjucks.configure({trimBlocks: true, lstripBlocks: true})
   },
 
   watch: {
@@ -62,8 +69,11 @@ export default {
   },
 
   computed: {
-    renderedXmlTemplate () {
-      return Prism.highlight(this.xmlTemplate, Prism.languages.markup)
+    renderedTemplate () {
+      return nunjucks.renderString(this.xmlTemplate, this.data)
+    },
+    highlightedTemplate () {
+      return Prism.highlight(this.renderedTemplate, Prism.languages.markup)
     }
   }
 }
