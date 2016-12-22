@@ -15,7 +15,7 @@
       </div>
       <div class="col-xs-8">
         <div v-if="currentTemplate">{{ currentTemplate.name }}</div>
-        <pre>{{ xmlTemplate }}</pre>
+        <pre v-html="renderedXmlTemplate"></pre>
         <div>xml output</div>
       </div>
     </div>
@@ -27,11 +27,16 @@ import promise from 'es6-promise'
 promise.polyfill()
 import 'isomorphic-fetch'
 
+import Prism from 'prismjs'
+import 'prismjs/themes/prism.css'
+import 'prismjs/components/prism-markup'
+
 export default {
   data () {
     return {
       templates: [],
       templateIndex: null,
+      currentTemplate: null,
       xmlTemplate: ''
     }
   },
@@ -53,6 +58,12 @@ export default {
           .then((response) => response.text())
           .then((xml) => (this.xmlTemplate = xml))
           .catch((ex) => (console.log(`loading of xml template ${this.currentTemplate.template} failed`)))
+    }
+  },
+
+  computed: {
+    renderedXmlTemplate () {
+      return Prism.highlight(this.xmlTemplate, Prism.languages.markup)
     }
   }
 }

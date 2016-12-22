@@ -7,6 +7,8 @@
 <script>
 import ApiExplorer from './components/ApiExplorer'
 
+import 'bootstrap/dist/css/bootstrap.css'
+
 export default {
   name: 'app',
   components: {
