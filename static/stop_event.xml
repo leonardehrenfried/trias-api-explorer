@@ -11,7 +11,7 @@
                     </LocationRef>
                 </Location>
                 <Params>
-                    <NumberOfResults>30</NumberOfResults>
+                    <NumberOfResults>2</NumberOfResults>
                     <StopEventType>departure</StopEventType>
                     <IncludePreviousCalls>true</IncludePreviousCalls>
                     <IncludeOnwardCalls>true</IncludeOnwardCalls>
