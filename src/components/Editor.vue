@@ -3,8 +3,8 @@
         <div v-for="variable in template.variables" class="form-group">
             <label :for="variable.name">{{ variable.label }}</label>
             <string v-if="variable.type === 'string'" :variable="variable" v-model="data[variable.name]"></string>
+            <integer v-else-if="variable.type === 'integer'" :variable="variable" v-model="data[variable.name]"></integer>
           <!--
-          <integer v-else-if="variable.type === 'integer''" :variable="variable" v-model="data[variable.name]"></integer>
           <date v-if="variable.type === 'integer''" :variable="variable" v-model="data[variable.name]"></date>
           <datetime v-if="variable.type === 'integer''" :variable="variable" @change="change"></datetime>
           <enumeration v-if="variable.type === 'integer''" :variable="variable" @change="change"></enumeration>
@@ -18,6 +18,7 @@
 
 <script>
 import String from './fields/String'
+import Integer from './fields/Integer'
 
 export default {
   props: ['template'],
@@ -49,7 +50,8 @@ export default {
   },
 
   components: {
-    String
+    String,
+    Integer
   }
 }
 </script>

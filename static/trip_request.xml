@@ -5,6 +5,7 @@
         <siri:RequestorRef>JS</siri:RequestorRef>
         <RequestPayload>
             <TripInfoRequest>
+                <Integer>{{ stop_point_ref }}</Integer>
                 <JourneyRef>{{ journey_ref }}</JourneyRef>
                 <OperatingDayRef>2016-04-02T</OperatingDayRef>
                 <Params>

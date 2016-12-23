@@ -7,7 +7,11 @@ export default{
   props: ['value'],
   methods: {
     updateValue (value) {
-      this.$emit('input', value)
+      let validatedValue = value.replace(/[^0-9]/, '')
+      if (validatedValue !== value) {
+        this.$refs.input.value = validatedValue
+      }
+      this.$emit('input', validatedValue)
     }
   }
 }
