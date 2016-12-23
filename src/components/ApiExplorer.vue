@@ -13,7 +13,7 @@
 
     <div class="row">
       <div class="col-xs-4">
-        <editor :template="currentTemplate"></editor>
+        <editor :template="currentTemplate" @send="send" @change="change"></editor>
       </div>
       <div class="col-xs-8">
         <div v-if="currentTemplate">{{ currentTemplate.name }}</div>
@@ -48,7 +48,6 @@ export default {
       xmlTemplate: '',
       response: '',
       data: {
-        stop_point_ref: '8502113'
       }
     }
   },
@@ -99,6 +98,9 @@ export default {
       .then((response) => response.text())
       .then((xml) => (this.response = xml))
       .catch((ex) => (console.log(`api request failed`, ex)))
+    },
+    change (newData) {
+      this.data = newData
     }
   },
 

@@ -1,27 +1,55 @@
 <template>
     <div v-if="template">
-        <div v-for="variable in template.variables">
-          {{ variable.name }}
+        <div v-for="variable in template.variables" class="form-group">
+            <label :for="variable.name">{{ variable.label }}</label>
+            <string v-if="variable.type === 'string'" :variable="variable" v-model="data[variable.name]"></string>
+          <!--
+          <integer v-else-if="variable.type === 'integer''" :variable="variable" v-model="data[variable.name]"></integer>
+          <date v-if="variable.type === 'integer''" :variable="variable" v-model="data[variable.name]"></date>
+          <datetime v-if="variable.type === 'integer''" :variable="variable" @change="change"></datetime>
+          <enumeration v-if="variable.type === 'integer''" :variable="variable" @change="change"></enumeration>
+          <boolean v-if="variable.type === 'integer''" :variable="variable" @change="change"></boolean>-->
         </div>
 
+        <button @click="reset">Clear</button>
         <button @click="send">Send</button>
     </div>
 </template>
 
 <script>
+import String from './fields/String'
+
 export default {
   props: ['template'],
   data () {
     return {
-      data: {
-        stop_point_ref: ''
-      }
+      data: {}
     }
   },
   methods: {
     send () {
-      console.log('click')
+      this.$emit('send')
+    },
+    reset () {
+      let newData = {}
+      this.template.variables.forEach((variable) => {
+        newData[variable.name] = variable.default ? variable.default : ''
+      })
+      this.data = newData
     }
+  },
+
+  watch: {
+    template (newTemplate) {
+      this.reset()
+    },
+    data (newData) {
+      this.$emit('change', newData)
+    }
+  },
+
+  components: {
+    String
   }
 }
 </script>

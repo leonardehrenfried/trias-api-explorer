@@ -5,7 +5,7 @@
         <siri:RequestorRef>JS</siri:RequestorRef>
         <RequestPayload>
             <TripInfoRequest>
-                <JourneyRef>sbb:01012::H:j16:30441</JourneyRef>
+                <JourneyRef>{{ journey_ref }}</JourneyRef>
                 <OperatingDayRef>2016-04-02T</OperatingDayRef>
                 <Params>
                     <!-- <UseTimetabledDataOnly>false</UseTimetabledDataOnly> -->
