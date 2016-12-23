@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'has-error': !valid}">
+  <div :class="{'has-error': invalid}">
     <label :for="variable.name" class="control-label">{{ variable.label }}</label>
     <select ref="input" :value="value" @input="updateValue($event.target.value)" class="form-control">
       <option value="">--</option>
@@ -18,12 +18,12 @@ export default{
   },
   methods: {
     updateValue (value) {
-      if (this.variable.required && value === '') {
-        this.valid = false
-      } else {
-        this.valid = true
-      }
       this.$emit('input', value)
+    }
+  },
+  computed: {
+    invalid () {
+      return this.variable.required && this.value === ''
     }
   }
 }
