@@ -10,18 +10,24 @@ export default{
   props: ['value', 'variable'],
   data () {
     return {
-      valid: true
+      invalid: null
     }
   },
   methods: {
-    updateValue (value) {
-      this.$emit('input', value)
+    updateValue (newValue) {
+      this.$emit('input', newValue)
+      this.updateInvalid(newValue)
+    },
+    updateInvalid (value) {
+      let invalid = !!this.variable.required && value === ''
+      if (invalid !== this.invalid) {
+        this.invalid = invalid
+        this.$emit('invalidChanged', this.variable.name, invalid)
+      }
     }
   },
-  computed: {
-    invalid () {
-      return this.variable.required && this.value === ''
-    }
+  created () {
+    this.updateInvalid(this.value)
   }
 }
 </script>

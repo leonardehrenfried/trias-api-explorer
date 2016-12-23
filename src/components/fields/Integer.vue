@@ -10,22 +10,28 @@ export default{
   props: ['value', 'variable'],
   data () {
     return {
-      valid: true
+      invalid: null
     }
   },
   methods: {
-    updateValue (value) {
-      let validatedValue = value.replace(/[^0-9]/, '')
-      if (validatedValue !== value) {
+    updateValue (newValue) {
+      let validatedValue = newValue.replace(/[^0-9]/, '')
+      if (validatedValue !== newValue) {
         this.$refs.input.value = validatedValue
       }
       this.$emit('input', validatedValue)
+      this.updateInvalid(validatedValue)
+    },
+    updateInvalid (value) {
+      let invalid = !!this.variable.required && value === ''
+      if (invalid !== this.invalid) {
+        this.invalid = invalid
+        this.$emit('invalidChanged', this.variable.name, invalid)
+      }
     }
   },
-  computed: {
-    invalid () {
-      return this.variable.required && this.value === ''
-    }
+  created () {
+    this.updateInvalid(this.value)
   }
 }
 </script>
