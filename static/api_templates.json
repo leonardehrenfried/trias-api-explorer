@@ -15,7 +15,8 @@
         "name": "enumeration",
         "label": "Enumeration",
         "type": "enumeration",
-        "enumeration": ["departure", "arrival"]
+        "options": ["departure", "arrival"],
+        "required": true
       },
       {
         "name": "stop_point_ref",

@@ -10,6 +10,7 @@
                 <OperatingDayRef>2016-04-02T</OperatingDayRef>
                 <Params>
                     <!-- <UseTimetabledDataOnly>false</UseTimetabledDataOnly> -->
+                    <!-- {{ enumeration }} -->
                     <IncludeCalls>true</IncludeCalls>
                     <IncludePosition>false</IncludePosition>
                     <IncludeService>true</IncludeService>
