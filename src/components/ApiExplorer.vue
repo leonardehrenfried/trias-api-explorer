@@ -13,8 +13,7 @@
 
     <div class="row">
       <div class="col-xs-4">
-        Stop Point Ref: <input type="text" v-model="data.stop_point_ref">
-        <button @click="send">Send</button>
+        <editor :template="currentTemplate"></editor>
       </div>
       <div class="col-xs-8">
         <div v-if="currentTemplate">{{ currentTemplate.name }}</div>
@@ -37,6 +36,8 @@ import 'prismjs/components/prism-markup'
 import nunjucks from 'nunjucks'
 
 import beautify from 'js-beautify'
+
+import Editor from './Editor'
 
 export default {
   data () {
@@ -99,6 +100,10 @@ export default {
       .then((xml) => (this.response = xml))
       .catch((ex) => (console.log(`api request failed`, ex)))
     }
+  },
+
+  components: {
+    Editor
   }
 }
 </script>
