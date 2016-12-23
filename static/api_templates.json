@@ -23,6 +23,12 @@
         "label": "Stop point reference",
         "type": "integer",
         "default": 8502113
+      },
+      {
+        "name": "boolean",
+        "label": "Boolean",
+        "type": "boolean",
+        "required": true
       }
     ]
   },
