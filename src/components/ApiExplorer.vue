@@ -48,7 +48,9 @@ export default {
       xmlTemplate: '',
       response: '',
       data: {
-      }
+      },
+      url: null,
+      apiKey: null
     }
   },
 
@@ -56,8 +58,10 @@ export default {
     fetch('/static/api_templates.json')
       .then((response) => response.json())
       .then((json) => {
-        this.templates = json
+        this.templates = json.templates
         this.templateIndex = 0
+        this.url = json.url
+        this.apiKey = json.api_key
       })
       .catch((ex) => (console.log('parsing api_templates failed', ex)))
     nunjucks.configure({trimBlocks: true, lstripBlocks: true})
@@ -87,11 +91,11 @@ export default {
 
   methods: {
     send () {
-      fetch('https://odpch-api.begasoft.ch/trias-int', {
+      fetch(this.url, {
         method: 'POST',
         headers: {
           'Content-Type': 'text/xml',
-          'Authorization': '57c5dadd5e6307000100005ec00211917288475a426a2a7a909a343a'
+          'Authorization': this.apiKey
         },
         body: this.renderedTemplate
       })

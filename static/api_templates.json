@@ -1,208 +1,212 @@
-[
-  {
-    "name": "Test",
-    "template": "test.xml",
-    "variables": [
-      {
-        "name": "string",
-        "label": "string: ( ) required, ( ) default",
-        "type": "string"
-      },
-      {
-        "name": "stringr",
-        "label": "string: (x) required, ( ) default",
-        "type": "string",
-        "required": true
-      },
-      {
-        "name": "stringd",
-        "label": "string: ( ) required, (x) default",
-        "type": "string",
-        "default": "value"
-      },
-      {
-        "name": "stringrd",
-        "label": "string: (x) required, (x) default",
-        "type": "string",
-        "required": true,
-        "default": "value"
-      },
-      {
-        "name": "integer",
-        "label": "integer: ( ) required, ( ) default",
-        "type": "integer"
-      },
-      {
-        "name": "integerr",
-        "label": "integer: (x) required, ( ) default",
-        "type": "integer",
-        "required": true
-      },
-      {
-        "name": "integerd",
-        "label": "integer: ( ) required, (x) default",
-        "type": "integer",
-        "default": "1234"
-      },
-      {
-        "name": "integerrd",
-        "label": "integer: (x) required, (x) default",
-        "type": "integer",
-        "required": true,
-        "default": "1234"
-      },
-      {
-        "name": "enumeration",
-        "label": "enumeration: ( ) required, ( ) default",
-        "type": "enumeration",
-        "options": [
-          "departure",
-          "arrival"
-        ]
-      },
-      {
-        "name": "enumerationr",
-        "label": "enumeration: (x) required, ( ) default",
-        "type": "enumeration",
-        "required": true,
-        "options": [
-          "departure",
-          "arrival"
-        ]
-      },
-      {
-        "name": "enumerationd",
-        "label": "enumeration: ( ) required, (x) default",
-        "type": "enumeration",
-        "default": "departure",
-        "options": [
-          "departure",
-          "arrival"
-        ]
-      },
-      {
-        "name": "enumerationrd",
-        "label": "enumeration: (x) required, (x) default",
-        "type": "enumeration",
-        "required": true,
-        "default": "departure",
-        "options": [
-          "departure",
-          "arrival"
-        ]
-      },
-      {
-        "name": "boolean",
-        "label": "boolean: ( ) required, ( ) default",
-        "type": "boolean"
-      },
-      {
-        "name": "booleanr",
-        "label": "boolean: (x) required, ( ) default",
-        "type": "boolean",
-        "required": true
-      },
-      {
-        "name": "booleand",
-        "label": "boolean: ( ) required, (x) default",
-        "type": "boolean",
-        "default": "true"
-      },
-      {
-        "name": "booleanrd",
-        "label": "boolean: (x) required, (x) default",
-        "type": "boolean",
-        "required": true,
-        "default": "true"
-      },
-      {
-        "name": "date",
-        "label": "date: ( ) required, ( ) default",
-        "type": "date"
-      },
-      {
-        "name": "dater",
-        "label": "date: (x) required, ( ) default",
-        "type": "date",
-        "required": true
-      },
-      {
-        "name": "dated",
-        "label": "date: ( ) required, (x) default",
-        "type": "date",
-        "default": "value"
-      },
-      {
-        "name": "daterd",
-        "label": "date: (x) required, (x) default",
-        "type": "date",
-        "required": true,
-        "default": "value"
-      },
-      {
-        "name": "datetime",
-        "label": "datetime: ( ) required, ( ) default",
-        "type": "datetime"
-      },
-      {
-        "name": "datetimer",
-        "label": "datetime: (x) required, ( ) default",
-        "type": "datetime",
-        "required": true
-      },
-      {
-        "name": "datetimed",
-        "label": "datetime: ( ) required, (x) default",
-        "type": "datetime",
-        "default": "value"
-      },
-      {
-        "name": "datetimerd",
-        "label": "datetime: (x) required, (x) default",
-        "type": "datetime",
-        "required": true,
-        "default": "value"
-      }
-    ]
-  },
-  {
-    "name": "Trip Request",
-    "template": "trip_request.xml",
-    "variables": [
-      {
-        "name": "journey_ref",
-        "label": "Journey Ref",
-        "description": "Dies ist der Stop Event Type",
-        "type": "string",
-        "default": "sbb:01012::H:j16:30441",
-        "required": true
-      },
-      {
-        "name": "enumeration",
-        "label": "Enumeration",
-        "type": "enumeration",
-        "options": [
-          "departure",
-          "arrival"
-        ],
-        "required": true
-      },
-      {
-        "name": "stop_point_ref",
-        "label": "Stop point reference",
-        "type": "integer",
-        "default": 8502113
-      },
-      {
-        "name": "boolean",
-        "label": "Boolean",
-        "type": "boolean",
-        "required": true
-      }
-    ]
-  },
-  {
-    "name": "StopEvent",
-    "template": "stop_event.xml"
-  }
-]
+{
+  "url": "https://odpch-api.begasoft.ch/trias-int",
+  "api_key": "57c5dadd5e6307000100005ec00211917288475a426a2a7a909a343a",
+  "templates": [
+    {
+      "name": "Test",
+      "template": "test.xml",
+      "variables": [
+        {
+          "name": "string",
+          "label": "string: ( ) required, ( ) default",
+          "type": "string"
+        },
+        {
+          "name": "stringr",
+          "label": "string: (x) required, ( ) default",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "stringd",
+          "label": "string: ( ) required, (x) default",
+          "type": "string",
+          "default": "value"
+        },
+        {
+          "name": "stringrd",
+          "label": "string: (x) required, (x) default",
+          "type": "string",
+          "required": true,
+          "default": "value"
+        },
+        {
+          "name": "integer",
+          "label": "integer: ( ) required, ( ) default",
+          "type": "integer"
+        },
+        {
+          "name": "integerr",
+          "label": "integer: (x) required, ( ) default",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "integerd",
+          "label": "integer: ( ) required, (x) default",
+          "type": "integer",
+          "default": "1234"
+        },
+        {
+          "name": "integerrd",
+          "label": "integer: (x) required, (x) default",
+          "type": "integer",
+          "required": true,
+          "default": "1234"
+        },
+        {
+          "name": "enumeration",
+          "label": "enumeration: ( ) required, ( ) default",
+          "type": "enumeration",
+          "options": [
+            "departure",
+            "arrival"
+          ]
+        },
+        {
+          "name": "enumerationr",
+          "label": "enumeration: (x) required, ( ) default",
+          "type": "enumeration",
+          "required": true,
+          "options": [
+            "departure",
+            "arrival"
+          ]
+        },
+        {
+          "name": "enumerationd",
+          "label": "enumeration: ( ) required, (x) default",
+          "type": "enumeration",
+          "default": "departure",
+          "options": [
+            "departure",
+            "arrival"
+          ]
+        },
+        {
+          "name": "enumerationrd",
+          "label": "enumeration: (x) required, (x) default",
+          "type": "enumeration",
+          "required": true,
+          "default": "departure",
+          "options": [
+            "departure",
+            "arrival"
+          ]
+        },
+        {
+          "name": "boolean",
+          "label": "boolean: ( ) required, ( ) default",
+          "type": "boolean"
+        },
+        {
+          "name": "booleanr",
+          "label": "boolean: (x) required, ( ) default",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "booleand",
+          "label": "boolean: ( ) required, (x) default",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "booleanrd",
+          "label": "boolean: (x) required, (x) default",
+          "type": "boolean",
+          "required": true,
+          "default": "true"
+        },
+        {
+          "name": "date",
+          "label": "date: ( ) required, ( ) default",
+          "type": "date"
+        },
+        {
+          "name": "dater",
+          "label": "date: (x) required, ( ) default",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "dated",
+          "label": "date: ( ) required, (x) default",
+          "type": "date",
+          "default": "value"
+        },
+        {
+          "name": "daterd",
+          "label": "date: (x) required, (x) default",
+          "type": "date",
+          "required": true,
+          "default": "value"
+        },
+        {
+          "name": "datetime",
+          "label": "datetime: ( ) required, ( ) default",
+          "type": "datetime"
+        },
+        {
+          "name": "datetimer",
+          "label": "datetime: (x) required, ( ) default",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "name": "datetimed",
+          "label": "datetime: ( ) required, (x) default",
+          "type": "datetime",
+          "default": "value"
+        },
+        {
+          "name": "datetimerd",
+          "label": "datetime: (x) required, (x) default",
+          "type": "datetime",
+          "required": true,
+          "default": "value"
+        }
+      ]
+    },
+    {
+      "name": "Trip Request",
+      "template": "trip_request.xml",
+      "variables": [
+        {
+          "name": "journey_ref",
+          "label": "Journey Ref",
+          "description": "Dies ist der Stop Event Type",
+          "type": "string",
+          "default": "sbb:01012::H:j16:30441",
+          "required": true
+        },
+        {
+          "name": "enumeration",
+          "label": "Enumeration",
+          "type": "enumeration",
+          "options": [
+            "departure",
+            "arrival"
+          ],
+          "required": true
+        },
+        {
+          "name": "stop_point_ref",
+          "label": "Stop point reference",
+          "type": "integer",
+          "default": 8502113
+        },
+        {
+          "name": "boolean",
+          "label": "Boolean",
+          "type": "boolean",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "StopEvent",
+      "template": "stop_event.xml"
+    }
+  ]
+}
