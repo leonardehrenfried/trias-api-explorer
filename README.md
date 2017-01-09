@@ -1,6 +1,6 @@
 # api-explorer
 
-> A api explorer for the trias XML API
+An api explorer for the TRIAS XML API
 
 ## Build Setup
 
