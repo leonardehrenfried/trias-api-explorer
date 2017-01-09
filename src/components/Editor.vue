@@ -42,6 +42,7 @@ export default {
         newData[variable.name] = variable.default ? variable.default : ''
       })
       this.data = newData
+      this.invalid = {}
     },
     invalidChanged (variable, invalid) {
       this.$set(this.invalid, variable, invalid)
