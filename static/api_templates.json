@@ -206,7 +206,8 @@
     },
     {
       "name": "StopEvent",
-      "template": "stop_event.xml"
+      "template": "stop_event.xml",
+      "variables": []
     }
   ]
 }
