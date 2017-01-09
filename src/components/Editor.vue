@@ -5,9 +5,9 @@
       <integer v-else-if="variable.type === 'integer'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></integer>
       <enumeration v-else-if="variable.type === 'enumeration'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></enumeration>
       <boolean v-else-if="variable.type === 'boolean'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></boolean>
+      <date-field v-else-if="variable.type === 'date'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></date-field>
       <!--
-      <date v-if="variable.type === 'integer''" :variable="variable" v-model="data[variable.name]"></date>
-      <datetime v-if="variable.type === 'integer''" :variable="variable" @change="change"></datetime>
+      <datetime v-if="variable.type === 'integer'" :variable="variable" @change="change"></datetime>
       -->
     </div>
     <button @click="reset">Clear</button>
@@ -20,6 +20,7 @@ import String from './fields/String'
 import Integer from './fields/Integer'
 import Enumeration from './fields/Enumeration'
 import Boolean from './fields/Boolean'
+import DateField from './fields/DateField'
 
 import every from 'lodash/every'
 
@@ -68,7 +69,8 @@ export default {
     String,
     Integer,
     Enumeration,
-    Boolean
+    Boolean,
+    DateField
   }
 }
 </script>
