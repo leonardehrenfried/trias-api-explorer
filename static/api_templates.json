@@ -133,14 +133,14 @@
           "name": "dated",
           "label": "date: ( ) required, (x) default",
           "type": "date",
-          "default": "value"
+          "default": "2017-03-21"
         },
         {
           "name": "daterd",
           "label": "date: (x) required, (x) default",
           "type": "date",
           "required": true,
-          "default": "value"
+          "default": "2017-03-21"
         },
         {
           "name": "datetime",
@@ -157,14 +157,14 @@
           "name": "datetimed",
           "label": "datetime: ( ) required, (x) default",
           "type": "datetime",
-          "default": "value"
+          "default": "2017-03-21T13:30:30"
         },
         {
           "name": "datetimerd",
           "label": "datetime: (x) required, (x) default",
           "type": "datetime",
           "required": true,
-          "default": "value"
+          "default": "2017-03-21T13:30:30"
         }
       ]
     },
