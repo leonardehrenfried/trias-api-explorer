@@ -32,6 +32,11 @@ export default{
   },
   created () {
     this.updateInvalid(this.value)
+  },
+  watch: {
+    value (newValue) {
+      this.updateInvalid(newValue)
+    }
   }
 }
 </script>
