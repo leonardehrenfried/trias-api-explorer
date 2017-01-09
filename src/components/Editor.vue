@@ -10,8 +10,8 @@
       <datetime v-if="variable.type === 'integer'" :variable="variable" @change="change"></datetime>
       -->
     </div>
-    <button @click="reset">Clear</button>
-    <button @click="send" :disabled="isInvalid">Send</button>
+    <button @click="send" :disabled="isInvalid" class="btn btn-success">Send</button>
+    <button @click="reset" class="btn btn-danger">Clear</button>
   </div>
 </template>
 
