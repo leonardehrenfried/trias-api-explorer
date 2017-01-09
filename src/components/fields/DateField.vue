@@ -29,10 +29,18 @@ export default{
       } else {
         this.date = null
       }
+    },
+    updateInvalid (value) {
+      let invalid = !!this.variable.required && value === ''
+      if (invalid !== this.invalid) {
+        this.invalid = invalid
+        this.$emit('invalidChanged', this.variable.name, invalid)
+      }
     }
   },
   created () {
     this.setTextValue(this.value)
+    this.updateInvalid(this.value)
   },
   watch: {
     value (newValue) {
@@ -47,6 +55,7 @@ export default{
       }
       this.displayValue = str
       this.$emit('input', str)
+      this.updateInvalid(str)
     }
   },
   components: {
