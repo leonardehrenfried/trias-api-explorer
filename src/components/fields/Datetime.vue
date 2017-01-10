@@ -1,18 +1,17 @@
 <template>
-  <div :class="{'has-error': invalid}" class="form-inline">
+  <div :class="{'has-error': invalid}">
     <label :for="variable.name" class="control-label">{{ variable.label }}</label><br>
-
-    <datepicker v-model="date" inputClass="form-control"></datepicker>
-
-    <vue-timepicker v-model="time" format="HH:mm:ss" hide-clear-button></vue-timepicker>
-
-    <button class="btn btn-default" type="button" @click="clear">Clear</button>
+    <div class="datetime-container">
+      <datepicker v-model="date" inputClass="form-control"></datepicker>
+      <vue-timepicker v-model="time" format="HH:mm:ss" hide-clear-button></vue-timepicker>
+      <button class="btn btn-default" type="button" @click="clear">Clear</button>
+    </div>
   </div>
 </template>
 
 <script>
 import Datepicker from 'vuejs-datepicker'
-import VueTimepicker from 'vue2-timepicker'
+import VueTimepicker from './TimePicker'
 import moment from 'moment'
 
 import padStart from 'lodash.padstart'
@@ -96,17 +95,11 @@ export default{
 }
 </script>
 
-<style scoped>
-.datepicker {
-  display: inline-block;
+<style lang="scss" scoped>
+.datetime-container {
+  display: flex;
+  .time-picker, button {
+    margin-left: 5px;
+  }
 }
-.datepicker input {
-  width: 10em;
-}
-
-.display-time {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 </style>
