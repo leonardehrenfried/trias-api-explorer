@@ -8,6 +8,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker'
+import moment from 'moment'
 
 export default{
   props: ['value', 'variable'],
@@ -24,8 +25,7 @@ export default{
     },
     setTextValue (value) {
       if (value) {
-        let splits = value.split('-')
-        this.date = new Date(parseInt(splits[0]), parseInt(splits[1]) - 1, parseInt(splits[2]))
+        this.date = moment(value).toDate()
       } else {
         this.date = null
       }
@@ -51,7 +51,7 @@ export default{
     date (newValue) {
       let str = ''
       if (newValue) {
-        str = (new Date(newValue.getTime() - (newValue.getTimezoneOffset() * 60000)).toISOString()).substr(0, 10)
+        str = moment(newValue).format('YYYY-MM-DD')
       }
       this.displayValue = str
       this.$emit('input', str)
