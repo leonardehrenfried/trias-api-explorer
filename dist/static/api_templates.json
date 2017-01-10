@@ -3,6 +3,82 @@
   "api_key": "57c5dadd5e6307000100005ec00211917288475a426a2a7a909a343a",
   "templates": [
     {
+      "name": "StopEvent",
+      "template": "stop_event.xml",
+      "variables": [
+        {
+          "name": "stop_point_ref",
+          "label": "Stop point reference",
+          "type": "integer",
+          "default": "8502113",
+          "required": true
+        },
+        {
+          "name": "dep_arr_time",
+          "label": "Departure/arrival time",
+          "type": "datetime",
+          "default": "2017-01-03T10:22:00",
+          "required": true
+        },
+        {
+          "name": "stop_event_type",
+          "label": "Stop event type reference",
+          "type": "enumeration",
+          "options": ["departure", "arrival"],
+          "default": "departure",
+          "required": true
+        },
+        {
+          "name": "include_previous_calls",
+          "label": "IncludePreviousCalls",
+          "type": "boolean",
+          "default": true,
+          "required": true
+        },
+        {
+          "name": "include_onward_calls",
+          "label": "IncludeOnwardCalls",
+          "type": "boolean",
+          "default": true,
+          "required": true
+        },
+        {
+          "name": "include_realtime_data",
+          "label": "IncludeRealtimeData",
+          "type": "boolean",
+          "default": true,
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Trip Request",
+      "template": "trip_request.xml",
+      "variables": [
+        {
+          "name": "stop_point_ref_origin",
+          "label": "Stop point reference origin",
+          "type": "integer",
+          "default": "8500320",
+          "required": true
+        },
+        {
+          "name": "stop_point_ref_dest",
+          "label": "Stop point reference destination",
+          "type": "integer",
+          "default": "8500322",
+          "required": true
+        },
+        {
+          "name": "dep_arr_time",
+          "label": "Departure/arrival time",
+          "type": "datetime",
+          "default": "2017-01-03T10:22:00",
+          "required": true
+        }
+      ]
+    },
+    {
       "name": "Test",
       "template": "test.xml",
       "variables": [
@@ -167,47 +243,6 @@
           "default": "2017-03-21T13:30:30"
         }
       ]
-    },
-    {
-      "name": "Trip Request",
-      "template": "trip_request.xml",
-      "variables": [
-        {
-          "name": "journey_ref",
-          "label": "Journey Ref",
-          "description": "Dies ist der Stop Event Type",
-          "type": "string",
-          "default": "sbb:01012::H:j16:30441",
-          "required": true
-        },
-        {
-          "name": "enumeration",
-          "label": "Enumeration",
-          "type": "enumeration",
-          "options": [
-            "departure",
-            "arrival"
-          ],
-          "required": true
-        },
-        {
-          "name": "stop_point_ref",
-          "label": "Stop point reference",
-          "type": "integer",
-          "default": 8502113
-        },
-        {
-          "name": "boolean",
-          "label": "Boolean",
-          "type": "boolean",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "StopEvent",
-      "template": "stop_event.xml",
-      "variables": []
     }
   ]
 }

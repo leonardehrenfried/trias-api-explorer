@@ -7,14 +7,16 @@
             <StopEventRequest>
                 <Location>
                     <LocationRef>
-                        <StopPointRef>8502113</StopPointRef>
+                        <StopPointRef>{{ stop_point_ref }}</StopPointRef>
                     </LocationRef>
+                    <DepArrTime>{{ dep_arr_time }}</DepArrTime>
                 </Location>
                 <Params>
-                    <NumberOfResults>2</NumberOfResults>
-                    <StopEventType>departure</StopEventType>
-                    <IncludePreviousCalls>true</IncludePreviousCalls>
-                    <IncludeOnwardCalls>true</IncludeOnwardCalls>
+                    <NumberOfResults>1</NumberOfResults>
+                    <StopEventType>{{ stop_event_type }}</StopEventType>
+                    <IncludePreviousCalls>{{ include_previous_calls }}</IncludePreviousCalls>
+                    <IncludeOnwardCalls>{{ include_onward_calls }}</IncludeOnwardCalls>
+                    <IncludeRealtimeData>{{ include_realtime_data }}</IncludeRealtimeData>
                 </Params>
             </StopEventRequest>
         </RequestPayload>
