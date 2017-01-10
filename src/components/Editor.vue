@@ -6,12 +6,10 @@
       <enumeration v-else-if="variable.type === 'enumeration'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></enumeration>
       <boolean v-else-if="variable.type === 'boolean'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></boolean>
       <date-field v-else-if="variable.type === 'date'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></date-field>
-      <!--
-      <datetime v-if="variable.type === 'integer'" :variable="variable" @change="change"></datetime>
-      -->
+      <datetime v-if="variable.type === 'datetime'" :variable="variable" v-model="data[variable.name]" @invalidChanged="invalidChanged"></datetime>
     </div>
-    <button @click="send" :disabled="isInvalid" class="btn btn-success">Send</button>
-    <button @click="reset" class="btn btn-danger">Clear</button>
+    <button @click="send" :disabled="isInvalid" class="btn btn-success">Send request</button>
+    <button @click="reset" class="btn btn-danger">Reset form</button>
   </div>
 </template>
 
@@ -21,8 +19,9 @@ import Integer from './fields/Integer'
 import Enumeration from './fields/Enumeration'
 import Boolean from './fields/Boolean'
 import DateField from './fields/DateField'
+import Datetime from './fields/Datetime'
 
-import every from 'lodash/every'
+import every from 'lodash.every'
 
 export default {
   props: ['template'],
@@ -70,7 +69,8 @@ export default {
     Integer,
     Enumeration,
     Boolean,
-    DateField
+    DateField,
+    Datetime
   }
 }
 </script>
