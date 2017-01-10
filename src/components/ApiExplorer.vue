@@ -55,7 +55,7 @@ export default {
   },
 
   created () {
-    fetch('/static/api_templates.json')
+    fetch('./static/api_templates.json')
       .then((response) => response.json())
       .then((json) => {
         this.templates = json.templates
