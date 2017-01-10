@@ -70,7 +70,7 @@ export default {
   watch: {
     templateIndex (newIndex) {
       this.currentTemplate = this.templates[this.templateIndex]
-      fetch('/static/' + this.currentTemplate.template)
+      fetch('./static/' + this.currentTemplate.template)
           .then((response) => response.text())
           .then((xml) => (this.xmlTemplate = xml))
           .catch((ex) => (console.log(`loading of xml template ${this.currentTemplate.template} failed`)))
