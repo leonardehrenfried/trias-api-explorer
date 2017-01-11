@@ -43,6 +43,7 @@ export default {
       })
       this.data = newData
       this.invalid = {}
+      this.$emit('reset')
     },
     invalidChanged (variable, invalid) {
       this.$set(this.invalid, variable, invalid)

@@ -13,7 +13,7 @@
 
     <div class="row">
       <div class="col-xs-4">
-        <editor :template="currentTemplate" @send="send" @change="change"></editor>
+        <editor :template="currentTemplate" @send="send" @change="change" @reset="reset"></editor>
       </div>
       <div class="col-xs-8">
         <div v-if="currentTemplate">{{ currentTemplate.name }}</div>
@@ -105,6 +105,9 @@ export default {
     },
     change (newData) {
       this.data = newData
+    },
+    reset () {
+      this.response = ''
     }
   },
 
