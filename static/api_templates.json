@@ -19,7 +19,6 @@
           "label": "Departure/arrival time",
           "type": "datetime",
           "default": "2017-01-03T10:22:00",
-          "required": true
         },
         {
           "name": "stop_event_type",
