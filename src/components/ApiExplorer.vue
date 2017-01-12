@@ -59,7 +59,21 @@ export default {
       .then((response) => response.json())
       .then((json) => {
         this.templates = json.templates
-        this.templateIndex = 0
+
+        // preselect template based on the url hash template, e.g.
+        // http://localhost:8080/#template=test.xml
+        var splits = window.location.hash.substr(1).split('=')
+        if (splits[0] === 'template') {
+          json.templates.forEach((template, index) => {
+            if (template.template === splits[1]) {
+              this.templateIndex = index
+            }
+          })
+        }
+        if (this.templateIndex === null) {
+          this.templateIndex = 0
+        }
+
         this.url = json.url
         this.apiKey = json.api_key
       })
