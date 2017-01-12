@@ -1,11 +1,13 @@
 <template>
   <div :class="{'has-error': invalid}">
-    <label :for="variable.name" class="control-label">{{ variable.label }}</label>
+    <Label :variable="variable"></Label>
     <input type="text" ref="input" :value="value" @input="updateValue($event.target.value)" class="form-control">
   </div>
 </template>
 
 <script>
+import Label from './Label'
+
 export default{
   props: ['value', 'variable'],
   data () {
@@ -33,6 +35,9 @@ export default{
     value (newValue) {
       this.updateInvalid(newValue)
     }
+  },
+  components: {
+    Label
   }
 }
 </script>

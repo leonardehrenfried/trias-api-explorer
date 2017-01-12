@@ -1,6 +1,6 @@
 <template>
   <div :class="{'has-error': invalid}">
-    <label :for="variable.name" class="control-label">{{ variable.label }}</label><br>
+    <Label :variable="variable"></Label>
     <div class="datetime-container">
       <datepicker v-model="date" inputClass="form-control"></datepicker>
       <vue-timepicker v-model="time" format="HH:mm:ss" hide-clear-button></vue-timepicker>
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import Label from './Label'
+
 import Datepicker from 'vuejs-datepicker'
 import VueTimepicker from './TimePicker'
 import moment from 'moment'
@@ -90,7 +92,8 @@ export default{
   },
   components: {
     Datepicker,
-    VueTimepicker
+    VueTimepicker,
+    Label
   }
 }
 </script>

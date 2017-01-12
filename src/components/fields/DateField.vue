@@ -1,12 +1,14 @@
 <template>
   <div :class="{'has-error': invalid}" class="form-inline">
-    <label :for="variable.name" class="control-label">{{ variable.label }}</label><br>
+    <Label :variable="variable"></Label>
     <datepicker ref="input" v-model="date" inputClass="form-control"></datepicker>
     <button class="btn btn-default" type="button" @click="clear">Clear</button>
   </div>
 </template>
 
 <script>
+import Label from './Label'
+
 import Datepicker from 'vuejs-datepicker'
 import moment from 'moment'
 
@@ -59,7 +61,8 @@ export default{
     }
   },
   components: {
-    Datepicker
+    Datepicker,
+    Label
   }
 }
 </script>
