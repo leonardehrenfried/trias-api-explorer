@@ -9,6 +9,7 @@
         {
           "name": "stop_point_ref",
           "label": "Stop point reference",
+          "description": "This is the description.",
           "type": "integer",
           "default": "8502113",
           "required": true
@@ -17,8 +18,7 @@
           "name": "dep_arr_time",
           "label": "Departure/arrival time",
           "type": "datetime",
-          "default": "2017-01-03T10:22:00",
-          "required": true
+          "default": "2017-01-03T10:22:00"
         },
         {
           "name": "stop_event_type",

@@ -9,7 +9,7 @@
                     <LocationRef>
                         <StopPointRef>{{ stop_point_ref }}</StopPointRef>
                     </LocationRef>
-                    <DepArrTime>{{ dep_arr_time }}</DepArrTime>
+                    {% if dep_arr_time %}<DepArrTime>{{ dep_arr_time }}</DepArrTime>{% endif %}
                 </Location>
                 <Params>
                     <NumberOfResults>1</NumberOfResults>
