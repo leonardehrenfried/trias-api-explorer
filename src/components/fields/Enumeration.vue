@@ -1,6 +1,6 @@
 <template>
   <div :class="{'has-error': invalid}">
-    <Label :variable="variable"></Label>
+    <FieldLabel :variable="variable"></FieldLabel>
     <select ref="input" :value="value" @input="updateValue($event.target.value)" class="form-control">
       <option value="">--</option>
       <option v-for="option in variable.options" :value="option">{{ option }}</option>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Label from './Label'
+import FieldLabel from './FieldLabel'
 
 export default{
   props: ['value', 'variable'],
@@ -40,7 +40,7 @@ export default{
     }
   },
   components: {
-    Label
+    FieldLabel
   }
 }
 </script>

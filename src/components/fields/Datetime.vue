@@ -1,6 +1,6 @@
 <template>
   <div :class="{'has-error': invalid}">
-    <Label :variable="variable"></Label>
+    <FieldLabel :variable="variable"></FieldLabel>
     <div class="datetime-container">
       <datepicker v-model="date" inputClass="form-control"></datepicker>
       <vue-timepicker v-model="time" format="HH:mm:ss" hide-clear-button></vue-timepicker>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Label from './Label'
+import FieldLabel from './FieldLabel'
 
 import Datepicker from 'vuejs-datepicker'
 import VueTimepicker from './TimePicker'
@@ -93,7 +93,7 @@ export default{
   components: {
     Datepicker,
     VueTimepicker,
-    Label
+    FieldLabel
   }
 }
 </script>
