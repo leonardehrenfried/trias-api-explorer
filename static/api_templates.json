@@ -18,7 +18,7 @@
           "name": "dep_arr_time",
           "label": "Departure/arrival time",
           "type": "datetime",
-          "default": "2017-01-03T10:22:00",
+          "default": "2017-01-03T10:22:00"
         },
         {
           "name": "stop_event_type",
