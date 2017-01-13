@@ -25,9 +25,11 @@
 </template>
 
 <script>
-import promise from 'es6-promise'
-promise.polyfill()
-import 'isomorphic-fetch'
+import Promise from 'promise-polyfill'
+if (!window.Promise) {
+  window.Promise = Promise
+}
+import 'whatwg-fetch'
 
 import Prism from 'prismjs'
 import 'prismjs/themes/prism.css'
