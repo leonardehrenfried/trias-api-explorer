@@ -1,7 +1,7 @@
 <template>
   <div :class="{'has-error': invalid}">
     <FieldLabel :variable="variable"></FieldLabel>
-    <select ref="input" :value="value" @input="updateValue($event.target.value)" class="form-control">
+    <select ref="input" :value="value" @change="updateValue($event.target.value)" class="form-control">
       <option value="">--</option>
       <option v-for="option in variable.options" :value="option">{{ option }}</option>
     </select>
