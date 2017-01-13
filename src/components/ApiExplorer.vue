@@ -107,17 +107,20 @@ export default {
 
   methods: {
     send () {
-      fetch(this.url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/xml',
-          'Authorization': this.apiKey
-        },
-        body: this.renderedTemplate
+      fetch(this.url)
+      .catch(() => {
+        /* fetch(this.url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/xml',
+            'Authorization': this.apiKey
+          },
+          body: this.renderedTemplate
+        })
+        .then((response) => response.text())
+        .then((xml) => (this.response = xml))
+        .catch((ex) => (console.log(`api request failed`, ex))) */
       })
-      .then((response) => response.text())
-      .then((xml) => (this.response = xml))
-      .catch((ex) => (console.log(`api request failed`, ex)))
     },
     change (newData) {
       this.data = newData
