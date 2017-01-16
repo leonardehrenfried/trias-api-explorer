@@ -75,11 +75,16 @@ export default {
         if (this.templateIndex === null) {
           this.templateIndex = 0
         }
+      })
+      .catch((ex) => (console.log('parsing api_templates failed', ex)))
 
+    fetch('./static/config.json')
+      .then((response) => response.json())
+      .then((json) => {
         this.url = json.url
         this.apiKey = json.api_key
       })
-      .catch((ex) => (console.log('parsing api_templates failed', ex)))
+
     nunjucks.configure({trimBlocks: true, lstripBlocks: true})
   },
 
