@@ -8,15 +8,17 @@
                     <LocationRef>
                         <StopPointRef>{{ stop_point_ref_origin }}</StopPointRef>
                     </LocationRef>
-                    <DepArrTime>{{ dep_arr_time }}</DepArrTime>
+                    {% if dep_time %}<DepArrTime>{{ dep_time }}</DepArrTime>{% endif %}
                 </Origin>
                 <Destination>
                     <LocationRef>
                         <StopPointRef>{{ stop_point_ref_dest }}</StopPointRef>
                     </LocationRef>
+					{% if arr_time %}<DepArrTime>{{ arr_time }}</DepArrTime>{% endif %}						
                 </Destination>
                 <Params>
-                    <IncludeTrackSections>true</IncludeTrackSections>
+					{% if num_results %}<NumberOfResults>{{ num_results }}</NumberOfResults>{% endif %}
+					<IncludeTrackSections>true</IncludeTrackSections>
                     <IncludeLegProjection>true</IncludeLegProjection>
                     <IncludeIntermediateStops>true</IncludeIntermediateStops>
                 </Params>

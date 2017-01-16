@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Trias version="1.1" xmlns="http://www.vdv.de/trias" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <ServiceRequest>
+         <siri:RequestTimestamp>2016-07-05T18:00:00</siri:RequestTimestamp>
+         <siri:RequestorRef>JS</siri:RequestorRef>
+         <RequestPayload>
+             <TripInfoRequest>
+                 <JourneyRef>{{ journey_ref }}</JourneyRef>
+                 <OperatingDayRef> {{ operation_day }}</OperatingDayRef>
+                 <Params>
+					 {% if timetableonly %}<UseTimetabledDataOnly>{{ timetableonly }} </UseTimetabledDataOnly>{% endif %}
+                     {% if include_calls %}<IncludeCalls>{{ include_calls }} </IncludeCalls>{% endif %}
+                     {% if include_position %}<IncludePosition>{{ include_position }}</IncludePosition>{% endif %}
+                     {% if include_service %}<IncludeService>{{ include_service }}</IncludeService>{% endif %}
+                 </Params>
+             </TripInfoRequest>
+         </RequestPayload>
+     </ServiceRequest>
+</Trias>
