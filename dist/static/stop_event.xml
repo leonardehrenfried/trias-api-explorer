@@ -12,11 +12,11 @@
                     {% if dep_arr_time %}<DepArrTime>{{ dep_arr_time }}</DepArrTime>{% endif %}
                 </Location>
                 <Params>
-                    <NumberOfResults>1</NumberOfResults>
-                    <StopEventType>{{ stop_event_type }}</StopEventType>
-                    <IncludePreviousCalls>{{ include_previous_calls }}</IncludePreviousCalls>
-                    <IncludeOnwardCalls>{{ include_onward_calls }}</IncludeOnwardCalls>
-                    <IncludeRealtimeData>{{ include_realtime_data }}</IncludeRealtimeData>
+                    {% if num_results %}<NumberOfResults>{{ num_results }}</NumberOfResults>{% endif %}
+                    {% if stop_event_type %}<StopEventType>{{ stop_event_type }}</StopEventType>{% endif %}
+                    {% if include_previous_calls %}<IncludePreviousCalls>{{ include_previous_calls }}</IncludePreviousCalls>{% endif %}
+                    {% if include_onward_calls %}<IncludeOnwardCalls>{{ include_onward_calls }}</IncludeOnwardCalls>{% endif %}
+                    {% if include_realtime_data %}<IncludeRealtimeData>{{ include_realtime_data }}</IncludeRealtimeData>{% endif %}
                 </Params>
             </StopEventRequest>
         </RequestPayload>

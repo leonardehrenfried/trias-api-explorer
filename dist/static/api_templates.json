@@ -1,4 +1,6 @@
 {
+  "url": "https://odpch-api.begasoft.ch/trias-int",
+  "api_key": "57c5dadd5e6307000100005ec00211917288475a426a2a7a909a343a",
   "templates": [
     {
       "name": "StopEvent",
@@ -15,37 +17,37 @@
         {
           "name": "dep_arr_time",
           "label": "Departure/arrival time",
-          "type": "datetime",
-          "default": "2017-01-03T10:22:00"
+          "type": "datetime"
         },
         {
+          "name": "num_results",
+          "label": "Number of results",
+          "type": "integer",
+          "default": "1"
+        },        {
           "name": "stop_event_type",
           "label": "Stop event type reference",
           "type": "enumeration",
           "options": ["departure", "arrival"],
-          "default": "departure",
-          "required": true
+          "default": "departure"
         },
         {
           "name": "include_previous_calls",
           "label": "IncludePreviousCalls",
           "type": "boolean",
-          "default": true,
-          "required": true
+          "default": true
         },
         {
           "name": "include_onward_calls",
           "label": "IncludeOnwardCalls",
           "type": "boolean",
-          "default": true,
-          "required": true
+          "default": true
         },
         {
           "name": "include_realtime_data",
           "label": "IncludeRealtimeData",
           "type": "boolean",
-          "default": true,
-          "required": true
+          "default": true
         }
       ]
     },
@@ -68,11 +70,64 @@
           "required": true
         },
         {
-          "name": "dep_arr_time",
-          "label": "Departure/arrival time",
-          "type": "datetime",
-          "default": "2017-01-03T10:22:00",
+          "name": "dep_time",
+          "label": "Departure time",
+          "type": "datetime"
+        },
+		{
+          "name": "arr_time",
+          "label": "Arrival time",
+          "type": "datetime"
+        },
+		{
+          "name": "num_results",
+          "label": "Number of Results",
+          "type": "integer",
+          "default": "1"
+        }
+      ]
+    },
+    {
+      "name": "Trip Info Request",
+      "template": "trip_info_request.xml",
+      "variables": [
+        {
+          "name": "journey_ref",
+          "label": "JourneyRef",
+          "type": "string",
+          "default": "odp:80045:Y:H:j17:3928",
           "required": true
+        },
+        {
+          "name": "operation_day",
+          "label": "Operation Day",
+          "type": "string",
+          "default": "2017-01-16",
+          "required": true
+        },
+        {
+          "name": "timetableonly",
+          "label": "Use timetable data only",
+          "type": "boolean",
+          "default": false
+        },
+		{
+          "name": "include_calls",
+          "label": "Include the calls",
+          "type": "boolean",
+          "default": false
+        },
+		{
+          "name": "include_position",
+          "label": "Include the position",
+          "type": "boolean",
+          "default": false
+        },
+		{
+          "name": "include_service",
+          "label": "Include the service",
+          "type": "boolean",
+          "default": true
         }
       ]
     },
