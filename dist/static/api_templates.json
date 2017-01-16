@@ -1,6 +1,4 @@
 {
-  "url": "https://odpch-api.begasoft.ch/trias-int",
-  "api_key": "57c5dadd5e6307000100005ec00211917288475a426a2a7a909a343a",
   "templates": [
     {
       "name": "StopEvent",
