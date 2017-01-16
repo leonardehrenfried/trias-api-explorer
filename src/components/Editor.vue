@@ -22,6 +22,7 @@ import DateField from './fields/DateField'
 import Datetime from './fields/Datetime'
 
 import every from 'lodash.every'
+import moment from 'moment'
 
 export default {
   props: ['template'],
@@ -39,7 +40,17 @@ export default {
     reset () {
       let newData = {}
       this.template.variables.forEach((variable) => {
-        newData[variable.name] = variable.default ? variable.default : ''
+        if (variable.default) {
+          newData[variable.name] = variable.default
+        } else {
+          if (variable.type === 'date') {
+            newData[variable.name] = moment().format('YYYY-MM-DD')
+          } else if (variable.type === 'datetime') {
+            newData[variable.name] = moment().format('YYYY-MM-DDTHH:mm:ss')
+          } else {
+            newData[variable.name] = ''
+          }
+        }
       })
       this.data = newData
       this.invalid = {}
