@@ -1,5 +1,5 @@
 {
-  "url": "https://odpch-api.begasoft.ch/trias-int",
+  "url": "/otp/trias/v1",
   "api_key": "57c5dadd5e6307000100005ec00211917288475a426a2a7a909a343a",
   "templates": [
     {
@@ -45,86 +45,6 @@
         {
           "name": "include_realtime_data",
           "label": "IncludeRealtimeData",
-          "type": "boolean",
-          "default": true
-        }
-      ]
-    },
-    {
-      "name": "Trip Request",
-      "template": "trip_request.xml",
-      "variables": [
-        {
-          "name": "stop_point_ref_origin",
-          "label": "Stop point reference origin",
-          "type": "integer",
-          "default": "8500320",
-          "required": true
-        },
-        {
-          "name": "stop_point_ref_dest",
-          "label": "Stop point reference destination",
-          "type": "integer",
-          "default": "8500322",
-          "required": true
-        },
-        {
-          "name": "dep_time",
-          "label": "Departure time",
-          "type": "datetime"
-        },
-		{
-          "name": "arr_time",
-          "label": "Arrival time",
-          "type": "datetime"
-        },
-		{
-          "name": "num_results",
-          "label": "Number of Results",
-          "type": "integer",
-          "default": "1"
-        }
-      ]
-    },
-    {
-      "name": "Trip Info Request",
-      "template": "trip_info_request.xml",
-      "variables": [
-        {
-          "name": "journey_ref",
-          "label": "JourneyRef",
-          "type": "string",
-          "default": "odp:80045:Y:H:j17:3928",
-          "required": true
-        },
-        {
-          "name": "operation_day",
-          "label": "Operation Day",
-          "type": "string",
-          "default": "2017-01-16",
-          "required": true
-        },
-        {
-          "name": "timetableonly",
-          "label": "Use timetable data only",
-          "type": "boolean",
-          "default": false
-        },
-		{
-          "name": "include_calls",
-          "label": "Include the calls",
-          "type": "boolean",
-          "default": false
-        },
-		{
-          "name": "include_position",
-          "label": "Include the position",
-          "type": "boolean",
-          "default": false
-        },
-		{
-          "name": "include_service",
-          "label": "Include the service",
           "type": "boolean",
           "default": true
         }
