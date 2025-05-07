@@ -64,7 +64,7 @@ export default{
         dt.hour(parseInt(this.time.HH))
         dt.minute(parseInt(this.time.mm))
         dt.second(parseInt(this.time.ss))
-        str = dt.format('YYYY-MM-DDTHH:mm:ss')
+        str = dt.format('YYYY-MM-DDTHH:mm:ssZ')
       }
       this.displayValue = str
       this.$emit('input', str)
